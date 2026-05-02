@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://cqeaf30ntap2i"]
+
+[ext_resource type="Texture2D" uid="uid://5j2bq8c1xrft" path="res://Assets/Input/Arrow.png" id="1_wncij"]
+[ext_resource type="Texture2D" uid="uid://l0i8t1ydrlob" path="res://Assets/Input/Use.png" id="2_e3mq1"]
+
+[node name="Touch input" type="Control" unique_id=378047000]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1280.0
+offset_bottom = -720.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Up" type="TouchScreenButton" parent="." unique_id=165195107]
+position = Vector2(192, 375)
+scale = Vector2(3, 3)
+texture_normal = ExtResource("1_wncij")
+texture_pressed = ExtResource("1_wncij")
+action = "Up"
+
+[node name="Right" type="TouchScreenButton" parent="." unique_id=15870788]
+position = Vector2(366, 461)
+rotation = 1.5707964
+scale = Vector2(3, 3)
+texture_normal = ExtResource("1_wncij")
+texture_pressed = ExtResource("1_wncij")
+action = "Right"
+
+[node name="Down" type="TouchScreenButton" parent="." unique_id=2093303104]
+position = Vector2(285, 639)
+rotation = 3.1415927
+scale = Vector2(3, 3)
+texture_normal = ExtResource("1_wncij")
+texture_pressed = ExtResource("1_wncij")
+action = "Down"
+
+[node name="Left" type="TouchScreenButton" parent="." unique_id=313029659]
+position = Vector2(105, 551)
+rotation = 4.712389
+scale = Vector2(3, 3)
+texture_normal = ExtResource("1_wncij")
+texture_pressed = ExtResource("1_wncij")
+action = "Left"
+
+[node name="Use" type="TouchScreenButton" parent="." unique_id=353064371]
+position = Vector2(1119, 433)
+scale = Vector2(3, 3)
+texture_normal = ExtResource("2_e3mq1")
+texture_pressed = ExtResource("2_e3mq1")
+action = "Use"

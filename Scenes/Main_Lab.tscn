@@ -1,0 +1,178 @@
+[gd_scene format=3 uid="uid://mxw8blxtevok"]
+
+[ext_resource type="Script" uid="uid://bhh3odsaijnhr" path="res://Scripts/Player/player.gd" id="1_2qgo7"]
+[ext_resource type="Texture2D" uid="uid://cp8w22gp5yrsb" path="res://Assets/Player/Up/Walking/1.png" id="2_7veou"]
+[ext_resource type="Texture2D" uid="uid://d1wysadoh4q87" path="res://Assets/Player/Up/Idle/1.png" id="2_h36yj"]
+[ext_resource type="Script" uid="uid://bu61t7yh1osi5" path="res://Scenes/player_detector.gd" id="3_dn5hq"]
+[ext_resource type="Texture2D" uid="uid://befkohpv7bce2" path="res://Assets/Player/Up/Walking/2.png" id="3_s4m3k"]
+[ext_resource type="Texture2D" uid="uid://bk4qp6dken3i0" path="res://Assets/Player/Up/Idle/2.png" id="3_strvq"]
+[ext_resource type="Texture2D" uid="uid://bm0adjng7tqtq" path="res://Assets/Player/Up/Walking/3.png" id="4_f1kb7"]
+[ext_resource type="Texture2D" uid="uid://3uorb1bv2dmr" path="res://Assets/Player/Up/Idle/3.png" id="4_o7lof"]
+[ext_resource type="Texture2D" uid="uid://uv6m70juqw2e" path="res://Assets/Player/Down/Idle/1.png" id="5_2sqsi"]
+[ext_resource type="Texture2D" uid="uid://bs2mm158hdvy6" path="res://Assets/Player/Down/Idle/2.png" id="6_6ys08"]
+[ext_resource type="Texture2D" uid="uid://cqgn0i6tsdayw" path="res://Assets/Player/Down/Idle/3.png" id="7_yhhox"]
+[ext_resource type="Texture2D" uid="uid://frp1er5ma88p" path="res://Assets/Player/Down/Walking/1.png" id="8_4coae"]
+[ext_resource type="Texture2D" uid="uid://bovs7dgk3w5e4" path="res://Assets/Player/Down/Walking/2.png" id="9_xmqv0"]
+[ext_resource type="Texture2D" uid="uid://gyntfegiute5" path="res://Assets/Player/Down/Walking/3.png" id="10_ijfvx"]
+[ext_resource type="PackedScene" uid="uid://cqeaf30ntap2i" path="res://Scenes/touch_input.tscn" id="15_6ys08"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h36yj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_h36yj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_strvq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_o7lof")
+}],
+"loop": true,
+"name": &"Idle Up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_2sqsi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_6ys08")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_yhhox")
+}],
+"loop": true,
+"name": &"Idle down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_4coae")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_xmqv0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ijfvx")
+}],
+"loop": true,
+"name": &"Walking Down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7veou")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_s4m3k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_f1kb7")
+}],
+"loop": true,
+"name": &"Walking Up",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ceh5h"]
+size = Vector2(16, 16)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2qgo7"]
+bg_color = Color(0.4548489, 0.642525, 0.62726164, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="Theme" id="Theme_dn5hq"]
+Label/colors/font_shadow_color = Color(0, 0, 0, 0.5686275)
+Label/styles/normal = SubResource("StyleBoxFlat_2qgo7")
+
+[sub_resource type="QuadMesh" id="QuadMesh_ceh5h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7veou"]
+size = Vector2(229, 38)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s4m3k"]
+size = Vector2(230, 85)
+
+[node name="Main menu" type="Node2D" unique_id=2090348963]
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1462459233 groups=["Player"]]
+script = ExtResource("1_2qgo7")
+
+[node name="Texture" type="AnimatedSprite2D" parent="Player" unique_id=1217042231]
+sprite_frames = SubResource("SpriteFrames_h36yj")
+animation = &"Walking Down"
+
+[node name="Shape" type="CollisionShape2D" parent="Player" unique_id=2064185100]
+shape = SubResource("RectangleShape2D_ceh5h")
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=418846327]
+zoom = Vector2(3, 3)
+position_smoothing_enabled = true
+position_smoothing_speed = 12.0
+
+[node name="Help" type="Label" parent="Player" unique_id=1925840630]
+z_index = 999
+offset_left = 11.0
+offset_top = -18.0
+offset_right = 64.33333
+offset_bottom = 2.0
+scale = Vector2(0.3, 0.3)
+theme = SubResource("Theme_dn5hq")
+theme_override_font_sizes/font_size = 18
+text = "مساعدة"
+
+[node name="Potion creation store" type="StaticBody2D" parent="." unique_id=18014836]
+position = Vector2(-131, -141)
+
+[node name="Texture" type="MeshInstance2D" parent="Potion creation store" unique_id=1539368569]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(0, -71.125)
+scale = Vector2(229.5, 84.24999)
+mesh = SubResource("QuadMesh_ceh5h")
+
+[node name="Label" type="Label" parent="Potion creation store" unique_id=1133831757]
+offset_left = -73.0
+offset_top = -104.0
+offset_right = 442.0
+offset_bottom = 15.0
+scale = Vector2(0.3, 0.3)
+theme_override_font_sizes/font_size = 42
+text = "بنسوي بوشنز هنا
+رح تكون هنا رسمة المكان"
+horizontal_alignment = 1
+
+[node name="Player detector" type="Area2D" parent="Potion creation store" unique_id=1635329720]
+script = ExtResource("3_dn5hq")
+
+[node name="Area shape" type="CollisionShape2D" parent="Potion creation store/Player detector" unique_id=1257569483]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_7veou")
+
+[node name="Body shape" type="CollisionShape2D" parent="Potion creation store" unique_id=1028604288]
+position = Vector2(0, -71)
+shape = SubResource("RectangleShape2D_s4m3k")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2079930091]
+
+[node name="Menu parent" type="Control" parent="CanvasLayer" unique_id=1043663255]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 482.0
+offset_top = 197.0
+offset_right = 522.0
+offset_bottom = 237.0
+
+[node name="Touch input" parent="CanvasLayer" unique_id=378047000 instance=ExtResource("15_6ys08")]
+offset_right = -1280.0
+offset_bottom = -720.0
+
+[connection signal="body_entered" from="Potion creation store/Player detector" to="Potion creation store/Player detector" method="_on_body_entered"]
+[connection signal="body_exited" from="Potion creation store/Player detector" to="Potion creation store/Player detector" method="_on_body_exited"]
