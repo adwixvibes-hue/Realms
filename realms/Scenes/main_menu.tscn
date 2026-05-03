@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://cxoi4yvnfhnin"]
+
+[ext_resource type="Script" uid="uid://b2tbd4ydgr7og" path="res://Scripts/main_menu.gd" id="1_28flt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_erv1k"]
+bg_color = Color(0.40229055, 0.60109586, 0.9141712, 1)
+border_width_left = 1
+border_width_right = 1
+border_width_bottom = 12
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_28flt"]
+bg_color = Color(0.40229055, 0.60109586, 0.9141712, 1)
+border_width_left = 1
+border_width_right = 1
+border_width_bottom = 12
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_48xlc"]
+bg_color = Color(0.40229055, 0.60109586, 0.9141712, 1)
+border_width_left = 1
+border_width_right = 1
+border_width_bottom = 8
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="SystemFont" id="SystemFont_erv1k"]
+font_names = PackedStringArray("Changa")
+
+[sub_resource type="Theme" id="Theme_1ehe0"]
+default_font = SubResource("SystemFont_erv1k")
+Button/styles/hover = SubResource("StyleBoxFlat_erv1k")
+Button/styles/normal = SubResource("StyleBoxFlat_28flt")
+Button/styles/pressed = SubResource("StyleBoxFlat_48xlc")
+
+[node name="Main menu" type="Control" unique_id=95334341]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_28flt")
+
+[node name="Start" type="Button" parent="." unique_id=1230220837]
+layout_mode = 0
+offset_left = 781.0
+offset_top = 565.0
+offset_right = 1247.0
+offset_bottom = 696.0
+theme = SubResource("Theme_1ehe0")
+theme_override_font_sizes/font_size = 64
+text = "Start >"
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]

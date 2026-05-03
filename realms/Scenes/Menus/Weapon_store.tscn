@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://c18cyy3xfvw36"]
+
+[ext_resource type="Script" uid="uid://bbmw5b1sux24q" path="res://Scripts/Improve Weapons store/Clear menu.gd" id="1_wwk64"]
+
+[sub_resource type="SystemFont" id="SystemFont_a4llr"]
+font_weight = 999
+font_stretch = 200
+subpixel_positioning = 0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ga0sy"]
+bg_color = Color(1, 0, 0, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8fthc"]
+bg_color = Color(0.6, 0, 0, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="Theme" id="Theme_ij47f"]
+Button/fonts/font = SubResource("SystemFont_a4llr")
+Button/styles/focus = SubResource("StyleBoxFlat_ga0sy")
+Button/styles/hover = SubResource("StyleBoxFlat_ga0sy")
+Button/styles/normal = SubResource("StyleBoxFlat_8fthc")
+Button/styles/pressed = SubResource("StyleBoxFlat_8fthc")
+
+[node name="Weapon store" type="Control" unique_id=902404154]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 428.0
+offset_top = 166.0
+offset_right = -852.0
+offset_bottom = -554.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wwk64")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=911688089]
+layout_mode = 0
+offset_right = 335.0
+offset_bottom = 335.0
+
+[node name="Label" type="Label" parent="." unique_id=300873339]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 77.0
+offset_right = 315.0
+offset_bottom = 100.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "هنا رح نضيف أزرار عشان تشتري سلاح"
+
+[node name="Button" type="Button" parent="." unique_id=1975774942]
+layout_mode = 0
+offset_left = 294.0
+offset_top = 9.0
+offset_right = 328.0
+offset_bottom = 41.0
+theme = SubResource("Theme_ij47f")
+theme_override_font_sizes/font_size = 18
+text = "X"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
